@@ -1,6 +1,6 @@
 {
     "name": "@rumess/payload-audit-log",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Audit log plugin for PayloadCMS with changes tracking",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
