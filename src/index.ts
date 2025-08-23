@@ -1,19 +1,21 @@
-import { GeneratedTypes } from 'payload';
-import { Config, Plugin } from 'payload/config';
-import { AfterChangeHook, AfterDeleteHook } from 'payload/dist/collections/config/types';
-import { CollectionConfig } from 'payload/types';
+import { Config, GeneratedTypes, Plugin } from 'payload';
+import {
+    AfterChangeHook,
+    AfterDeleteHook,
+    CollectionConfig,
+} from 'payload/dist/collections/config/types';
 
-interface AuditLogOptions {
-    collections?: (keyof Omit<GeneratedTypes['collections'], 'audit-logs'>)[];
+export interface AuditLogOptions {
+    collections?: (keyof Omit<GeneratedTypes['collectionsUntyped'], 'audit-logs'>)[];
     includeAuth?: boolean;
 }
 
-const defaultOptions: AuditLogOptions = {
+export const defaultOptions: AuditLogOptions = {
     collections: [],
     includeAuth: false,
 };
 
-const auditLogPlugin = (options: AuditLogOptions = {}): Plugin => {
+export const auditLogPlugin = (options: AuditLogOptions = {}): Plugin => {
     const pluginOptions = { ...defaultOptions, ...options };
 
     return (config: Config): Config => {
